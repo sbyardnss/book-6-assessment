@@ -1,0 +1,39 @@
+{
+    "authors": [
+        {
+            "id": 1,
+            "name": "Mark Twain"
+        },
+        {
+            "id": 2,
+            "name": "Stephen Byard"
+        },
+        {
+            "id": 3,
+            "name": "Maya Angelou"
+        }
+    ],
+    "recipients": [
+        {
+            "id": 1,
+            "name": "Other Mark Twain"
+        },
+        {
+            "id": 2,
+            "name": "Other Stephen Byard"
+        },
+        {
+            "id": 3,
+            "name": "Other Maya Angelou"
+        }
+    ],
+    "topics": [
+        { "id": 1, "subject": "Business" },
+        { "id": 2, "subject": "Friendly" },
+        { "id": 3, "subject": "Family" },
+        { "id": 4, "subject": "Congratulations" },
+        { "id": 5, "subject": "Condolences" }
+    ],
+    "submissions": [],
+    "sent": []
+}
