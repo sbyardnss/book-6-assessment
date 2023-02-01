@@ -14,10 +14,13 @@ const recipients = getRecipients()
 
 
 export const SubmissionForm = () => {
+    const authors = getAuthors()
+    const topics = getTopics()
+    const recipients = getRecipients()
     let html = `
         <div class="field">
             <label class="label" for="authors">Author</label>
-            <select class="authors" id="authorSelect">
+            <select class="dropDowns" id="authorSelect">
                 <option value="0">Choose author</option>
                 ${
                     authors.map(
@@ -30,11 +33,12 @@ export const SubmissionForm = () => {
         </div>
         <div class="field">
             <label class="label" for="letterMessage">Letter</label>
-            <input type="text" name="letterMessage" class="input" id="messageInput" />
+            <textarea type="text" rows="20" name="letterMessage" class="input" id="messageInput" />Type letter here</textarea>
+
         </div>
         <div class="field" id="topicRadios">
             <label class="label" for="topics">Topics</label>
-                <ul>
+                <ul id="topicList">
             ${
                 topics.map(
                     (topic) => {
@@ -42,13 +46,13 @@ export const SubmissionForm = () => {
                             <input type="radio" name="topics" value="${topic.id}" />${topic.subject}
                         </li>`
                         }
-                )
+                ).join("")
             }
             </ul>
         </div>
         <div class="field">
             <label class="label" for="recipients">Recipient</label>
-            <select class="recipients" id="recipientSelect">
+            <select class="dropDowns" id="recipientSelect">
                 <option value="0">Choose recipient</option>
                 ${
                     recipients.map(

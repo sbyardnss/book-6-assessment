@@ -1,0 +1,22 @@
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+#topicList {
+    display: flex;
+    list-style-type: none;
+}
+
+.label {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+}
+
+#messageInput {
+    width: 640px;
+}
+
+.dropDowns {
+    width: 200px;
+}
