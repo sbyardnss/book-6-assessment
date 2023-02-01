@@ -25,7 +25,7 @@ export const SubmissionForm = () => {
                 ${
                     authors.map(
                         (author) => {
-                            return `<option value="${author.id}">${author.name}</option>`
+                            return `<option name="authorName" value="${author.id}">${author.name}</option>`
                         }
                     ).join("")
                 }
@@ -33,7 +33,7 @@ export const SubmissionForm = () => {
         </div>
         <div class="field">
             <label class="label" for="letterMessage">Letter</label>
-            <textarea type="text" rows="20" name="letterMessage" class="input" id="messageInput" />Type letter here</textarea>
+            <textarea type="text" rows="20" name="letterMessage" class="input" id="messageInput" /></textarea>
 
         </div>
         <div class="field" id="topicRadios">
@@ -57,7 +57,7 @@ export const SubmissionForm = () => {
                 ${
                     recipients.map(
                         (recipient) => {
-                            return `<option value="${recipient.id}">${recipient.name}</option>`
+                            return `<option name="recipientName" value="${recipient.id}">${recipient.name}</option>`
                         }
                     ).join("")
                 }
@@ -68,3 +68,17 @@ export const SubmissionForm = () => {
         return html
 
 }
+
+const mainContainer = document.querySelector("#container")
+mainContainer.addEventListener(
+    "click",
+    clickEvent => {
+        if (clickEvent.target.id === "sendButton") {
+            const authorValue = document.querySelector("input[name='authorName']").value
+            const recipientValue = document.querySelector("input[name='recipientName'").value
+            const messageValue = document.querySelector("input[name='letterMessage']").value
+            const topicValue = document.querySelector("input[name='topics']").value
+
+        }
+    }
+)

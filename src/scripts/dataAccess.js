@@ -84,3 +84,20 @@ export const getTopics = () => {
 export const getSent = () => {
     return applicationState.sent.map(sented => ({...sented}))
 }
+
+
+//creating a saved entry
+export const sendLetter = (letterSubmission) => {
+    const fetchOptions = {
+        method: "POST",
+        header: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(letterSubmission)
+    }
+    return fetch(`${API}/Submissions`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
