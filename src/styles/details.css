@@ -33,6 +33,7 @@
     border-radius: 6px;
     width: 400px;
     padding: 20px;
+    box-shadow: 4px 4px 3px gray;
 }
 
 .topicSpan {
@@ -40,6 +41,7 @@
     border-radius: 4px;
     background-color: lightblue;
     padding: 2px;
+    box-shadow: 4px 4px 2px gray;
 }
 
 .letterListSignOff {

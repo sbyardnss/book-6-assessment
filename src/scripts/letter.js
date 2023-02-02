@@ -1,5 +1,5 @@
 import { getAuthors, getRecipients, getSent, getSubmissions, getTopics, sendLetter } from "./dataAccess.js";
-
+import { getSelectedTopics } from "./submissionForm.js"
 
 
 // export const listOfLetters = () => {
@@ -53,15 +53,35 @@ const convertRecipientId = (obj) => {
     return chosenRecipient.name
 }
 
-const convertTopicId = (obj) => {
+
+
+// OLD VERSION FOR POPULATING TOPICS
+// const convertTopicId = (obj) => {
+//     const topics = getTopics()
+//     let chosenTopics = null;
+//     for (const topic of topics) {
+//         if (obj.topicId === topic.id) {
+//             chosenTopics = topic
+//         }
+//     }
+//     return chosenTopics.subject
+// }
+
+
+
+
+const convertTopicArray = (obj) => { 
     const topics = getTopics()
-    let chosenTopics = null;
+    let html = "<ul>\n"
     for (const topic of topics) {
-        if (obj.topicId === topic.id) {
-            chosenTopics = topic
+        for (const item in obj.topicIds) {
+            if (item === parseInt(topic.id)) {
+                html += `<li><span class="topicSpan">${topic.name}</span></li>`
+            }
         }
     }
-    return chosenTopics.subject
+    html += "</ul>"
+    return html
 }
 
 
@@ -79,10 +99,11 @@ export const Letters = () => {
                     <p>${submission.letter}</p>
                     <div class="letterListSignOff">Sincerely,\n 
                     ${convertAuthorId(submission)}</div>
-                    <div><span class="topicSpan">${convertTopicId(submission)}</span></div>
-                </li>`
-            }).join("")
-    }
-    </ul>`
-    return html
-}
+                    <div>${convertTopicArray(submission)}</div>
+                    </li>`
+                }).join("")
+            }
+            </ul>`
+            return html
+        }
+        // <div><span class="topicSpan">${convertTopicId(submission)}</span></div>

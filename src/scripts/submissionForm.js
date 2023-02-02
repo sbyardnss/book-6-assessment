@@ -43,7 +43,7 @@ export const SubmissionForm = () => {
                 topics.map(
                     (topic) => {
                         return `<li>
-                            <input type="radio" id="topic" name="${topic.subject}" value="${topic.id}" />${topic.subject}
+                            <input type="checkbox" id="topic" name="checkbox" value="${topic.id}" />${topic.subject}
                         </li>`
                         }
                 ).join("")
@@ -74,7 +74,6 @@ export const SubmissionForm = () => {
 
 let selectedAuthorId = null;
 let selectedRecipientId = null;
-let selectedTopicId = null;
 
 document.addEventListener(
     "change",
@@ -94,6 +93,24 @@ document.addEventListener(
     }
 )
 
+let selectedTopics = []
+
+document.addEventListener(
+    "change",
+    event => {
+        if (event.target.id === "topic") {
+            selectedTopics.push(parseInt(event.target.value))
+        }
+    }
+)
+export const getSelectedTopics = () => {
+    return selectedTopics.map(topic => ({...topic}))
+}
+/*
+
+//OLD VERSION FOR SELECTING SINGLE TOPIC
+let selectedTopicId = null;
+
 document.addEventListener(
     "change",
     changeEvent => {
@@ -102,6 +119,7 @@ document.addEventListener(
         }
     }
 )
+*/
 
 
 
@@ -113,12 +131,12 @@ mainContainer.addEventListener(
         if (clickEvent.target.id === "sendButton") {
             const messageValue = document.getElementById("messageInput").value
             const dateValue = new Date().toDateString()
-
             const dataToSendToAPI = {
                 authorId: selectedAuthorId,
                 recipientId: selectedRecipientId,
                 letter: messageValue,
-                topicId: selectedTopicId,
+                // topicId: selectedTopicId,
+                topicIds: selectedTopics,
                 date: dateValue
             }
             sendLetter(dataToSendToAPI)
