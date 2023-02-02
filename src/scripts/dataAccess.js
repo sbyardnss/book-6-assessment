@@ -90,12 +90,12 @@ export const getSent = () => {
 export const sendLetter = (letterSubmission) => {
     const fetchOptions = {
         method: "POST",
-        header: {
+        headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(letterSubmission)
     }
-    return fetch(`${API}/Submissions`, fetchOptions)
+    return fetch(`${API}/submissions`, fetchOptions)
         .then(response => response.json())
         .then(() => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))

@@ -1,9 +1,9 @@
-import { getAuthors, getTopics, getRecipients, getSent, getSubmissions } from "./dataAccess.js"
+import { getAuthors, getTopics, getRecipients, getSent, getSubmissions, sendLetter } from "./dataAccess.js"
 
 
-const authors = getAuthors()
-const topics = getTopics()
-const recipients = getRecipients()
+// const authors = getAuthors()
+// const topics = getTopics()
+// const recipients = getRecipients()
 
 
 
@@ -25,7 +25,7 @@ export const SubmissionForm = () => {
                 ${
                     authors.map(
                         (author) => {
-                            return `<option name="authorName" value="${author.id}">${author.name}</option>`
+                            return `<option id="authorName" name="${author.name}" value="${author.id}">${author.name}</option>`
                         }
                     ).join("")
                 }
@@ -43,7 +43,7 @@ export const SubmissionForm = () => {
                 topics.map(
                     (topic) => {
                         return `<li>
-                            <input type="radio" name="topics" value="${topic.id}" />${topic.subject}
+                            <input type="radio" id="topic" name="${topic.subject}" value="${topic.id}" />${topic.subject}
                         </li>`
                         }
                 ).join("")
@@ -57,7 +57,7 @@ export const SubmissionForm = () => {
                 ${
                     recipients.map(
                         (recipient) => {
-                            return `<option name="recipientName" value="${recipient.id}">${recipient.name}</option>`
+                            return `<option id="recipientName" name="${recipient.name}" value="${recipient.id}">${recipient.name}</option>`
                         }
                     ).join("")
                 }
@@ -69,16 +69,89 @@ export const SubmissionForm = () => {
 
 }
 
+
+//event listeners for author, recipient and topic
+
+let selectedAuthorId = null;
+let selectedRecipientId = null;
+let selectedTopicId = null;
+
+document.addEventListener(
+    "change",
+    changeEvent => {
+        if (changeEvent.target.id === "authorSelect") {
+            selectedAuthorId = parseInt(changeEvent.target.value)
+        }
+    }
+)
+
+document.addEventListener(
+    "change",
+    changeEvent => {
+        if (changeEvent.target.id === "recipientSelect") {
+            selectedRecipientId = parseInt(changeEvent.target.value)
+        }
+    }
+)
+
+document.addEventListener(
+    "change",
+    changeEvent => {
+        if (changeEvent.target.id === "topic") {
+            selectedTopicId = parseInt(changeEvent.target.value)
+        }
+    }
+)
+
+
+
+//code for creating object to send to API
 const mainContainer = document.querySelector("#container")
 mainContainer.addEventListener(
     "click",
     clickEvent => {
         if (clickEvent.target.id === "sendButton") {
-            const authorValue = document.querySelector("input[name='authorName']").value
-            const recipientValue = document.querySelector("input[name='recipientName'").value
-            const messageValue = document.querySelector("input[name='letterMessage']").value
-            const topicValue = document.querySelector("input[name='topics']").value
+            const messageValue = document.getElementById("messageInput").value
+            const dateValue = new Date().toDateString()
 
+            const dataToSendToAPI = {
+                authorId: selectedAuthorId,
+                recipientId: selectedRecipientId,
+                letter: messageValue,
+                topicId: selectedTopicId,
+                date: dateValue
+            }
+            sendLetter(dataToSendToAPI)
         }
     }
 )
+
+
+
+/*
+//code for creating object to send to API
+const mainContainer = document.querySelector("#container")
+mainContainer.addEventListener(
+    "click",
+    clickEvent => {
+        if (clickEvent.target.id === "sendButton") {
+            clickEvent.preventDefault();
+            const authorId = parseInt(document.querySelector(`#authorName`).value)
+            const recipientId = parseInt(document.querySelector(`#recipientName`).value)
+            const messageValue = document.getElementById("messageInput").value
+            const topicId = parseInt(document.querySelector(`#topic`).value)
+            const dateValue = new Date().toDateString()
+
+            const dataToSendToAPI = {
+                authorId: authorId,
+                recipientId: recipientId,
+                letter: messageValue,
+                topicId: topicId,
+                date: dateValue
+            }
+            sendLetter(dataToSendToAPI)
+        }
+    }
+)
+
+*/

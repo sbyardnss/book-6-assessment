@@ -10,7 +10,6 @@ const render = () => {
         .then(() => fetchAuthors())
         .then(() => fetchRecipients())
         .then(() => fetchTopics())
-        .then(() => fetchSent())
         .then(
             () => {
                 mainContainer.innerHTML = PenPal()
