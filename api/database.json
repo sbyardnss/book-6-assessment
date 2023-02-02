@@ -51,14 +51,6 @@
   ],
   "submissions": [
     {
-      "authorId": null,
-      "recipientId": null,
-      "letter": "help",
-      "topicId": 3,
-      "date": "Thu Feb 02 2023",
-      "id": 1
-    },
-    {
       "authorId": 1,
       "recipientId": 2,
       "letter": "help",
@@ -73,6 +65,14 @@
       "topicId": 5,
       "date": "Thu Feb 02 2023",
       "id": 3
+    },
+    {
+      "authorId": 1,
+      "recipientId": 3,
+      "letter": "",
+      "topicId": 1,
+      "date": "Thu Feb 02 2023",
+      "id": 4
     }
   ],
   "sent": []

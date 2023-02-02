@@ -20,3 +20,26 @@
 .dropDowns {
     width: 200px;
 }
+
+#oldLetters {
+    list-style-type: none;
+}
+
+.letterListItem {
+    margin-bottom: 10px;
+    border: 2px solid gray;
+    border-radius: 6px;
+    width: 400px;
+    padding: 20px;
+}
+
+.topicSpan {
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: lightblue;
+    padding: 2px;
+}
+
+.letterListSignOff {
+    margin: 16px 0px;
+}

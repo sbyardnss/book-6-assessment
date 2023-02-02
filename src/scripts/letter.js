@@ -1,13 +1,88 @@
 import { getAuthors, getRecipients, getSent, getSubmissions, getTopics, sendLetter } from "./dataAccess.js";
 
-const listOfLetters = (obj) => {
+
+
+// export const listOfLetters = () => {
+//     const authors = getAuthors()
+//     const recipients = getRecipients()
+//     const topics = getTopics()
+//     const submissions = getSubmissions()
+//     let html = `
+    
+//     ${
+//     submissions.map(
+//         (sentLetter) => {
+//             return `<li>To ${sentLetter.recipientId}
+//             ${sentLetter.letter}
+//             Sincerely, ${sentLetter.authorId}
+//             ${sentLetter.date}
+//             ${sentLetter.topicId}
+//     </li>`
+//     })
+//     }
+//     `
+//     return html
+// }
+
+
+// const authors = getAuthors()
+// const recipients = getRecipients()
+// const topics = getTopics()
+
+
+const convertAuthorId = (obj) => {
     const authors = getAuthors()
+    let chosenAuthor = null
+    for (const author of authors) {
+        if (obj.authorId === author.id) {
+            chosenAuthor = author
+        }
+    }
+    return chosenAuthor.name
+} 
+
+
+const convertRecipientId = (obj) => {
     const recipients = getRecipients()
-    const topics = getTopics()
-    const submissions = getSubmissions()
-    let html = ""
-    html += `<li>To ${obj.recipient}\n\n${obj.message}\n\nSincerely, ${obj.author}\n\n${obj.date}\n\n${obj.topic}
-        <button class="deleteButton" id="delete--${obj.id}">Delete letter</button>
-    </li>`
+    let chosenRecipient = null
+    for (const recipient of recipients) {
+        if (obj.recipientId === recipient.id) {
+            chosenRecipient = recipient
+        }
+    }
+    return chosenRecipient.name
 }
 
+const convertTopicId = (obj) => {
+    const topics = getTopics()
+    let chosenTopics = null;
+    for (const topic of topics) {
+        if (obj.topicId === topic.id) {
+            chosenTopics = topic
+        }
+    }
+    return chosenTopics.subject
+}
+
+
+export const Letters = () => {
+    const submissions = getSubmissions()
+    //To RECIPIENT MESSAGE Sincerely AUTHOR TOPICS
+    
+    let html = `
+    <ul id="oldLetters">
+    ${
+        submissions.map(
+            submission => {
+                return `<li class="letterListItem">
+                    <div>To ${convertRecipientId(submission)},</div>
+                    <p>${submission.letter}</p>
+                    <div class="letterListSignOff">Sincerely,\n 
+                    ${convertAuthorId(submission)}</div>
+                    <div><span class="topicSpan">${convertTopicId(submission)}</span></div>
+                </li>`
+            }).join("")
+    }
+    </ul>`
+    return html
+}
