@@ -97,6 +97,17 @@
       ],
       "date": "Thu Feb 02 2023",
       "id": 8
+    },
+    {
+      "authorId": 1,
+      "recipientId": 1,
+      "letter": "our battle station is fully operational",
+      "topicIds": [
+        1,
+        4
+      ],
+      "date": "Fri Feb 03 2023",
+      "id": 9
     }
   ],
   "sent": []
