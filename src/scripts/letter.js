@@ -52,6 +52,8 @@ const convertRecipientId = (obj) => {
     }
     return chosenRecipient.name
 }
+ 
+
 
 
 
@@ -103,6 +105,7 @@ export const Letters = () => {
                     <p>${submission.letter}</p>
                     <div class="letterListSignOff">Sincerely,\n 
                     ${convertAuthorId(submission)}</div>
+                    <div>${submission.date}</div>
                     <div>${convertTopicArray(submission)}</div>
                     </li>`
                 }).join("")
