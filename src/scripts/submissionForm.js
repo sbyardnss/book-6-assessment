@@ -42,7 +42,7 @@ export const SubmissionForm = () => {
             ${
                 topics.map(
                     (topic) => {
-                        return `<li>
+                        return `<li class="topicListItem">
                             <input type="checkbox" id="topic" name="checkbox" value="${topic.id}" />${topic.subject}
                         </li>`
                         }
