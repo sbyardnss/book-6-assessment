@@ -1,5 +1,5 @@
 import { getAuthors, getRecipients, getSent, getSubmissions, getTopics, sendLetter } from "./dataAccess.js";
-import { getSelectedTopics } from "./submissionForm.js"
+// import { getSelectedTopics } from "./submissionForm.js"
 
 
 // export const listOfLetters = () => {

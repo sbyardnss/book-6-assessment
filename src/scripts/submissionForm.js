@@ -93,9 +93,9 @@ document.addEventListener(
         }
     }
 )
+/*
 
 let selectedTopics = []
-
 document.addEventListener(
     "change",
     event => {
@@ -107,6 +107,9 @@ document.addEventListener(
 export const getSelectedTopics = () => {
     return selectedTopics.map(topic => ({...topic}))
 }
+*/
+
+
 /*
 
 //OLD VERSION FOR SELECTING SINGLE TOPIC
@@ -123,7 +126,7 @@ document.addEventListener(
 */
 
 
-
+/*
 //code for creating object to send to API
 const mainContainer = document.querySelector("#container")
 mainContainer.addEventListener(
@@ -144,8 +147,44 @@ mainContainer.addEventListener(
         }
     }
 )
+*/
+
+//updated version from wesley. make sure you understand the query selector topics code on line 160
+const mainContainer = document.querySelector("#container")
+
+mainContainer.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "sendButton") {
+        // Get what the user typed into the form fields
+        //BE AWARE OF WHICH IDS ARE USED FOR THESE. IT IS THE ID FOR THE WHOLE DROPDOWN. NOT THE ID OF EACH OPTION
+        const userAuthor = parseInt(document.querySelector("#authorSelect").value)
+        const userRecipient = parseInt(document.querySelector("#recipientSelect").value)
 
 
+        //THIS IS YOUR VERSION OF THE AUTHOR/RECIPIENT SELECTIONS THAT USES THE EVENT LISTENERS ABOVE
+        // const userAuthor = selectedAuthorId
+        // const userRecipient = selectedRecipientId
+        const userTopics = document.querySelectorAll("input[type='checkbox']:checked")
+        let userTopicsArray = []
+        userTopics.forEach((topic) => {
+            userTopicsArray.push(parseInt(topic.value))
+        })
+        const userTopic = userTopicsArray
+        const userBody = document.querySelector("#messageInput").value
+        const userDate = new Date().toLocaleDateString()
+
+
+        const dataToSendToAPI = {
+            authorId: userAuthor,
+            recipientId: userRecipient,
+            topicIds: userTopic,
+            letter: userBody,
+            date: userDate
+        }
+
+        // Send the data to the API for permanent storage
+        sendLetter(dataToSendToAPI)
+    }
+})
 
 /*
 //code for creating object to send to API

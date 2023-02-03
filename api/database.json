@@ -93,39 +93,59 @@
       "id": 7
     },
     {
-      "authorId": 2,
-      "recipientId": 2,
-      "letter": "trying more\n",
+      "authorId": 1,
+      "recipientId": 1,
       "topicIds": [
-        1,
         3,
         5
       ],
-      "date": "Thu Feb 02 2023",
+      "letter": "this is it",
+      "date": "2/3/2023",
       "id": 8
     },
     {
       "authorId": 1,
       "recipientId": 1,
-      "letter": "our battle station is fully operational",
       "topicIds": [
         1,
-        4
+        3,
+        5
       ],
-      "date": "Fri Feb 03 2023",
+      "letter": "testing again for final time. maya. to mark. topics 1 3 5",
+      "date": "2/3/2023",
       "id": 9
     },
     {
       "authorId": 1,
-      "recipientId": 2,
-      "letter": "hello there",
+      "recipientId": 1,
       "topicIds": [
-        1,
+        1
+      ],
+      "letter": "testing",
+      "date": "2/3/2023",
+      "id": 10
+    },
+    {
+      "authorId": 3,
+      "recipientId": 1,
+      "topicIds": [
+        3,
+        4
+      ],
+      "letter": "testing maya to other mark topics 3 4",
+      "date": "2/3/2023",
+      "id": 11
+    },
+    {
+      "authorId": 2,
+      "recipientId": 3,
+      "topicIds": [
         2,
         5
       ],
-      "date": "Fri Feb 03 2023",
-      "id": 10
+      "letter": "testing stephen to other maya 2 5",
+      "date": "2/3/2023",
+      "id": 12
     }
   ],
   "sent": []
