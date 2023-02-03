@@ -125,7 +125,7 @@ export const Letters = () => {
                 return `<li class="letterListItem">
                     <div>To ${convertRecipientId(submission)}<span id="emailSpan">(${convertRecipientEmail(submission)})</span>,</div>
                     <p>${submission.letter}</p>
-                    <div class="letterListSignOff">Sincerely,\n 
+                    <div class="letterListSignOff">Sincerely,
                     ${convertAuthorId(submission)}<span id="emailSpan">(${convertAuthorEmail(submission)})</span></div>
                     <div>${submission.date}</div>
                     <div>${convertTopicArray(submission)}</div>

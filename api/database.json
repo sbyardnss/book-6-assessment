@@ -114,6 +114,18 @@
       ],
       "date": "Fri Feb 03 2023",
       "id": 9
+    },
+    {
+      "authorId": 1,
+      "recipientId": 2,
+      "letter": "hello there",
+      "topicIds": [
+        1,
+        2,
+        5
+      ],
+      "date": "Fri Feb 03 2023",
+      "id": 10
     }
   ],
   "sent": []
