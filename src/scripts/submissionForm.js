@@ -75,6 +75,7 @@ export const SubmissionForm = () => {
 let selectedAuthorId = null;
 let selectedRecipientId = null;
 
+
 document.addEventListener(
     "change",
     changeEvent => {

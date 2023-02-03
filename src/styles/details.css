@@ -71,3 +71,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+#emailSpan {
+    margin-left: 12px;
+}

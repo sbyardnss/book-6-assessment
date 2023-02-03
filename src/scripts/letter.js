@@ -41,6 +41,17 @@ const convertAuthorId = (obj) => {
     return chosenAuthor.name
 } 
 
+const convertAuthorEmail = (obj) => {
+    const authors = getAuthors()
+    let chosenAuthorEmail = null
+    for (const author of authors) {
+        if (obj.authorId === author.id) {
+            chosenAuthorEmail = author.email
+        }
+    }
+    return chosenAuthorEmail
+}
+
 
 const convertRecipientId = (obj) => {
     const recipients = getRecipients()
@@ -51,6 +62,17 @@ const convertRecipientId = (obj) => {
         }
     }
     return chosenRecipient.name
+}
+
+const convertRecipientEmail = (obj) => {
+    const recipients = getRecipients()
+    let chosenRecipientEmail = null
+    for (const recipient of recipients) {
+        if (obj.recipientId === recipient.id) {
+            chosenRecipientEmail = recipient.email
+        }
+    }
+    return chosenRecipientEmail
 }
  
 
@@ -101,10 +123,10 @@ export const Letters = () => {
         submissions.map(
             submission => {
                 return `<li class="letterListItem">
-                    <div>To ${convertRecipientId(submission)},</div>
+                    <div>To ${convertRecipientId(submission)}<span id="emailSpan">(${convertRecipientEmail(submission)})</span>,</div>
                     <p>${submission.letter}</p>
                     <div class="letterListSignOff">Sincerely,\n 
-                    ${convertAuthorId(submission)}</div>
+                    ${convertAuthorId(submission)}<span id="emailSpan">(${convertAuthorEmail(submission)})</span></div>
                     <div>${submission.date}</div>
                     <div>${convertTopicArray(submission)}</div>
                     </li>`

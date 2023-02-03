@@ -2,29 +2,35 @@
   "authors": [
     {
       "id": 1,
-      "name": "Mark Twain"
+      "name": "Mark Twain",
+      "email": "mark@mark.com"
     },
     {
       "id": 2,
-      "name": "Stephen Byard"
+      "name": "Stephen Byard",
+      "email": "stephen@stephen.com"
     },
     {
       "id": 3,
-      "name": "Maya Angelou"
+      "name": "Maya Angelou",
+      "email": "maya@maya.com"
     }
   ],
   "recipients": [
     {
       "id": 1,
-      "name": "Other Mark Twain"
+      "name": "Other Mark Twain",
+      "email": "othermark@othermark.com"
     },
     {
       "id": 2,
-      "name": "Other Stephen Byard"
+      "name": "Other Stephen Byard",
+      "email": "otherstephen@otherstephen.com"
     },
     {
       "id": 3,
-      "name": "Other Maya Angelou"
+      "name": "Other Maya Angelou",
+      "email": "othermaya@othermaya.com"
     }
   ],
   "topics": [
