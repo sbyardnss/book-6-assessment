@@ -52,30 +52,6 @@
   "submissions": [
     {
       "authorId": 1,
-      "recipientId": 2,
-      "letter": "help",
-      "topicId": 3,
-      "date": "Thu Feb 02 2023",
-      "id": 2
-    },
-    {
-      "authorId": 3,
-      "recipientId": 3,
-      "letter": "help",
-      "topicId": 5,
-      "date": "Thu Feb 02 2023",
-      "id": 3
-    },
-    {
-      "authorId": 1,
-      "recipientId": 3,
-      "letter": "",
-      "topicId": 1,
-      "date": "Thu Feb 02 2023",
-      "id": 4
-    },
-    {
-      "authorId": 1,
       "recipientId": 3,
       "letter": "hjk",
       "topicIds": [

@@ -72,12 +72,16 @@ const convertRecipientId = (obj) => {
 
 const convertTopicArray = (obj) => { 
     const topics = getTopics()
-    let html = "<ul>\n"
+    // let submittedTopics = obj.topicIds
+    let html = "<ul class='letterTopicList'>\n"
     for (const topic of topics) {
-        for (const item in obj.topicIds) {
-            if (item === parseInt(topic.id)) {
-                html += `<li><span class="topicSpan">${topic.name}</span></li>`
-            }
+        // for (const item in obj.topicIds) {
+        //     if (parseInt(item).includes(topic.id)) {
+        //         html += `<li><span class="topicSpan">${topic.name}</span></li>`
+        //     }
+        // }
+        if (obj.topicIds.includes(topic.id)) {
+            html += `<li class="individualTopic"><span class="topicSpan">${topic.subject}</span></li>`
         }
     }
     html += "</ul>"
